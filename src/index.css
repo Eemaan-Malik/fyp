@@ -1,0 +1,410 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: white;
+  color: #333;
+}
+
+.App {
+  text-align: center;
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  min-height: 100vh;
+}
+
+/* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #4A5EE6;
+  color: white;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li {
+  cursor: pointer;
+}
+
+.navbar-links a {
+  color: white;
+  text-decoration: none;
+}
+
+/* Sign Up and Login Button Styling */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.auth-buttons button {
+  background-color: white;
+  color: #4A5EE6;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.auth-buttons .login {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+/* Services dropdown menu */
+.services {
+  position: relative;
+}
+
+/* Arrow styling */
+.arrow {
+  margin-left: 2px;
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.services:hover .arrow {
+  transform: rotate(180deg); 
+}
+
+/* Adjust dropdown list visibility */
+.dropdown {
+  display: block; /* Show dropdown */
+  position: absolute; 
+  background-color: white;
+  color: #4A5EE6;
+  padding: 10px;
+  border-radius: 5px;
+  list-style: none;
+  margin-top: 5px;
+  text-align: left;
+  z-index: 10; /* Ensure it appears above other elements */
+}
+
+.dropdown li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  background-color: #4A5EE6;
+  color: white;
+}
+
+/* Landing page styling */
+.landing {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+  color: white;
+  background-image: url('./image.avif');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 75px;
+  animation: fadeInScale 1.5s ease-in-out; 
+  margin: 0;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.7); 
+}
+
+.subtitle {
+  font-size: 24px;
+  animation: fadeInScale 1.5s ease-in-out 0.5s; 
+  margin-top: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+}
+
+.title, .subtitle {
+  background-color: rgba(255, 255, 255, 0.2); 
+}
+
+.rounded-title,
+.rounded-subtitle {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px; 
+  position: relative;
+}
+
+.rounded-title::after,
+.rounded-subtitle::after {
+  content: ''; 
+  position: absolute;
+  left: 0;
+  bottom: -2px; /* 2px gap from the text */
+  width: 100%;
+  height: 5px; 
+  background-color: #4A5EE6; 
+  border-radius: 8px; 
+}
+
+.title {
+  margin-bottom: 5px; 
+}
+
+.subtitle {
+  margin-top: 5px; 
+}
+
+/* Keyframe animation for title and subtitle */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9); /* Start smaller */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* End at normal size */
+  }
+}
+
+@keyframes colorChange {
+  0% { color: #4A5EE6; }
+  50% { color: #4d6bd9; } 
+  100% { color: #4A5EE6; }
+}
+
+/* Form container styling */
+.form-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 20px auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 80%; /* Responsive width */
+  max-width: 350px; /* Max width for larger screens */
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  margin-left: -8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Button styling for forms */
+button {
+  background-color: #4A5EE6;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button[type="button"] {
+  background-color: #ccc;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%; /* Responsive width */
+  max-width: 300px; /* Max width for larger screens */
+  position: relative; /* For positioning the close button */
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #4A5EE6;
+}
+
+.footer {
+  background-color: #4A5EE6; /* Match your theme color */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px; /* Adjust the width as needed */
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping for smaller screens */
+  justify-content: space-between; /* Space out the sections */
+}
+
+.footer-section {
+  flex: 1; /* Equal space for each section */
+  min-width: 200px; /* Minimum width for each section */
+  margin: 10px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin: 5px 0; /* Space between links */
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.footer-links a:hover {
+  color: #FF5733; /* Change color on hover */
+}
+
+.links {
+  margin-left: 50px; /* 100px margin from left for Quick Links */
+}
+
+.social {
+  text-align: center; /* Center the text */
+  margin: 10px 100px 0px 0px; /* Remove margins for centering */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* Center the icons */
+  gap: 10px; /* Space between icons */
+}
+
+.social-icons a {
+  color: white;
+  font-size: 24px; /* Adjust size of social icons */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.social-icons a:hover {
+  color: #FF5733; /* Change color on hover */
+}
+
+.newsletter {
+  margin-right: 120px; /* 100px margin from right for Newsletter */
+}
+
+.newsletter form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the form */
+}
+
+.newsletter input {
+  padding: 10px 5px;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.newsletter button {
+  background-color: white;
+  color: #4A5EE6;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+  background-color: #FF5733; /* Change background on hover */
+}
+
+.footer-bottom {
+  margin-top: 20px; /* Space above the copyright text */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .title {
+    font-size: 50px; /* Smaller title on smaller screens */
+  }
+
+  .subtitle {
+    font-size: 20px; /* Adjust subtitle size */
+  }
+
+  .navbar-links {
+    flex-direction: column; /* Stack links on smaller screens */
+  }
+
+  .footer-content {
+    flex-direction: column; /* Stack footer sections */
+    align-items: center; /* Center footer sections */
+  }
+
+  .form-container {
+    width: 90%; /* Responsive width */
+    max-width: 90%; /* Max width for larger screens */
+  }
+
+  .modal-content {
+    width: 90%; /* Responsive width */
+    max-width: 300px; /* Max width for larger screens */
+  }
+
+  .footer-links {
+    margin: 10px 0; /* Space between links */
+    text-align: center; /* Center text */
+  }
+
+  .social {
+    margin: 0; /* Remove margin for centering */
+  }
+
+  .newsletter {
+    margin: 0; /* Remove margin for centering */
+  }
+}
